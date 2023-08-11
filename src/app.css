@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    
+    .nav-btn {
+        @apply h-6 w-6 text-white align-middle
+    }
 }
