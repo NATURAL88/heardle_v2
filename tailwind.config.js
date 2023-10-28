@@ -2,7 +2,11 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "normal": "rgb(23 23 23)"
+      }
+    },
     fontFamily: {
       'noto': ['Roboto', 'Arial', 'sans-serif']
     },
@@ -10,7 +14,8 @@ export default {
       '3xl': ['32px', {
         lineHeight: '36px',
         letterSpacing: '-0.04em'
-      }]
+      }],
+      'sm': ['0.875rem', '1.25rem']
     }
   },
   plugins: [],

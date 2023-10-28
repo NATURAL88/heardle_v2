@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        @apply text-white font-noto;
+        @apply bg-neutral-900
+    }
+}
+
 @layer components {
     .nav-btn {
         @apply h-6 w-6 text-white align-middle
     }
+
+    .bg-base {
+        @apply bg-neutral-900
+    } 
 }
