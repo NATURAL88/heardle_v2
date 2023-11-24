@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { showHTPModal } from "./ModalStores";
+
+	function hideModal() {
+		showHTPModal.set(false)
+	}
 </script>
 
 <div class="absolute left-0 top-0 flex h-full w-full justify-center backdrop-brightness-[0.2]">
@@ -7,9 +12,11 @@
 		<div class="flex w-full items-center justify-center bg-normal px-5 pt-5">
 			<!-- head of htp -->
 			<span class="flex-1">
-				<p class="relative font-semibold tracking-[0.2em] ml-12 text-sm text-center text-neutral-400">HOW TO PLAY</p>
+				<p class="relative font-semibold tracking-[0.2em] ml-12 text-sm text-center text-neutral-400">
+					HOW TO PLAY
+				</p>
 			</span>
-			<button class="justify-self-end flex-none p-3">
+			<button class="justify-self-end flex-none p-3" on:click={hideModal}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 20 20"
