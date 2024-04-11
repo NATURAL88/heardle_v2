@@ -9,4 +9,10 @@ declare global {
 	}
 }
 
-export {};
+type guessState = 'nuetral' | 'wrong' | 'half-wrong' | 'skipped';
+type SongContainerArray = [guessState, guessState, guessState, guessState, guessState, guessState]
+
+export {
+	guessState,
+	SongContainerArray
+};
