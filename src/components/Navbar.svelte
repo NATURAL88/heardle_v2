@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
 
-	import { showHTPModal } from './ModalStores';
+	import { showAboutModal, showHTPModal } from './ModalStores';
 	import Modal from './Modal.svelte';
 	let showModal = false
 </script>
@@ -12,7 +12,7 @@
 			<img src="./github-mark-white.svg" alt="Github repo" class="nav-btn" />
 		</a>
 		<!-- About button -->
-		<button class="px-3">
+		<button class="px-3" on:click={() => showAboutModal.set(true)}>
 			<img src="./info-btn.svg" alt="about" class="nav-btn" />
 		</button>
 		<h1 class="flex-1 text-center font-noto text-3xl font-bold text-white">Heardle</h1>
