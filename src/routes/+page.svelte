@@ -7,23 +7,9 @@
 	import { showHTPModal, showAboutModal, showStatsModal } from '$components/ModalStores';
 	import type { SongContainerArray } from '../app';
 	import type { PageData } from './$types.js';
-
-	export let data: PageData;
-
-	let howToPlay_entries: Array<{ [key: string]: string }> = [
-		{
-			svg: './music.svg',
-			text: 'Listen to the intro, then find the correct artist & title in the list.'
-		},
-		{
-			svg: './volume-2.svg',
-			text: 'Skipped or incorrect attempts unlock more of the intro'
-		},
-		{
-			svg: './thumbs-up.svg',
-			text: 'Answer in as few tries as possible and share your score!'
-		}
-	];
+	import Soundcloud from '$components/soundcloud.svelte';
+	import { howToPlay_entries } from '$lib/howToPlayEntries';
+	import Spotify from '$components/spotify.svelte';
 
 	let guesses: SongContainerArray = [
 		'nuetral',
@@ -76,5 +62,9 @@
 	{/if}
 	<SongEntry bind:guesses />
 	<ProgressBar />
-	{data.embedHTML}
+	<!-- <Soundcloud
+		hidden="true"
+		soundcloudLink="https://soundcloud.com/black-eyed-peas-official/meet-me-halfway-album-version"
+	/> -->
+	<!-- <Spotify {token} /> -->
 </div>
