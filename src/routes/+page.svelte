@@ -9,7 +9,6 @@
 	import type { PageData } from './$types.js';
 	import Soundcloud from '$components/soundcloud.svelte';
 	import { howToPlay_entries } from '$lib/howToPlayEntries';
-	import Spotify from '$components/spotify.svelte';
 
 	let guesses: SongContainerArray = [
 		'nuetral',
@@ -62,9 +61,8 @@
 	{/if}
 	<SongEntry bind:guesses />
 	<ProgressBar />
-	<!-- <Soundcloud
+	<Soundcloud
 		hidden="true"
 		soundcloudLink="https://soundcloud.com/black-eyed-peas-official/meet-me-halfway-album-version"
-	/> -->
-	<!-- <Spotify {token} /> -->
+	/>
 </div>
