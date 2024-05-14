@@ -1,1 +1,1 @@
-# Since Heardle was shutdown I decided to make a second version as a personal project to learn SvelteKit
+# Since Heardle was shutdown I decided to make a second version for my High School Senior Project
