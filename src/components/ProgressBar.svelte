@@ -4,7 +4,7 @@
 		Lorem ipsum dolor sit amet.
 	</div>
 
-	<div class="flex h-12 w-full max-w-xl items-center justify-between m-1">
+	<div class="m-1 flex h-12 w-full max-w-xl items-center justify-between">
 		<div>Lorem.</div>
 		<button
 			class="flex h-12 w-12 max-w-xl items-center justify-center rounded-[50%] border-2 border-white"
