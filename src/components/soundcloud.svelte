@@ -15,7 +15,6 @@
 	onMount(() => {
 		iframe = document.querySelector('#scwidget');
 		globalThis.widget = new Controller(iframe);
-		// TODO: pass this to controller
 	});
 </script>
 
