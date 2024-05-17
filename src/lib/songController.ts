@@ -1,10 +1,22 @@
+import { writable } from 'svelte/store';
+
 type guessCount = 0 | 1 | 2 | 3 | 4 | 5;
 declare var SC: any;
+
+export const position = writable(0);
+
 export class Controller {
 	widget: typeof SC.Widget;
+	position: number;
 
 	constructor(iframe: HTMLIFrameElement | null) {
 		this.widget = SC.Widget(iframe);
+		this.position = 0;
+	}
+
+	private update_postion(p: number) {
+		this.position = p;
+		position.set(p);
 	}
 
 	start() {
@@ -20,8 +32,11 @@ export class Controller {
 	}
 
 	pause() {
+		this.widget.setVolume(0);
 		this.widget.pause();
-		// this.widget.seekTo(0);
+		this.widget.seekTo(0);
+		this.update_postion(0);
+		this.widget.setVolume(100);
 	}
 
 	timeToWait(n: guessCount) {
@@ -32,19 +47,21 @@ export class Controller {
 		return sum;
 	}
 
-	playFor(guesses: guessCount) {
+	playFor(guesses: guessCount): number {
 		this.play();
 		new Promise<void>((resolve) => {
 			let interval = setInterval(() => {
 				this.widget.getPosition((p: number) => {
+					p = Math.floor(p);
+					this.update_postion(p);
 					if (p >= this.timeToWait(guesses)) {
 						this.pause();
 						clearInterval(interval);
 						resolve();
-						//todo here
 					}
 				});
 			}, 5);
 		});
+		return guesses;
 	}
 }
