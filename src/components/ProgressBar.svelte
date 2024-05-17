@@ -25,6 +25,7 @@
 			class="flex h-12 w-12 max-w-xl items-center justify-center rounded-[50%] border-2 border-white"
 		>
 			<img src="./play-button.svg" alt="play button" class="h-6 pl-2" />
+			<!-- /\ make into button -->
 		</button>
 		<div>16:00</div>
 	</div>
