@@ -30,7 +30,7 @@
 			<div slot="body">
 				{#each howToPlay_entries as { svg, text }, index}
 					<div class="mb-6 flex items-center">
-						<img src={svg} alt="" class="mr-4 h-7 w-7" />
+						<img src={svg} alt="" class="mr-4 size-7" />
 						<div class="tracking-wide">
 							{text}
 						</div>
@@ -39,7 +39,7 @@
 			</div>
 			<button
 				slot="footer"
-				class="bg-green-500 p-2 text-sm font-semibold tracking-wider text-normal"
+				class="bg-green-500 px-2 py-[10px] text-sm font-semibold tracking-wider text-normal"
 				on:click={() => showHTPModal.set(false)}
 			>
 				PLAY
