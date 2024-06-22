@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { position } from '$lib/songController';
+	import type { guessCount } from '$lib/songController';
 
 	let elapsed: Date;
 	let time: string;
@@ -10,7 +11,7 @@
 		.toString()
 		.padStart(2, '0')}`;
 
-	let guesses = 0;
+	let guesses: guessCount = 0;
 
 	function increment() {
 		guesses += 1;
@@ -32,6 +33,7 @@
 		</div>
 	</div>
 
+	<!-- Timestamps & Play Button -->
 	<div class="m-1 flex h-12 w-full max-w-xl items-center justify-between">
 		<div>{time}</div>
 		<button
@@ -42,9 +44,28 @@
 		</button>
 		<div>16:00</div>
 	</div>
-	<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, eaque?</div>
+
+	<!-- Search Bar -->
+	<div class="flex w-full max-w-xl flex-1 items-center border border-neutral-600 px-3">
+		<img src="./search.svg" class="mr-1 size-5" alt="search icon" />
+		<input
+			class="w-full text-pretty bg-transparent py-3 text-sm tracking-wider"
+			type="text"
+			name=""
+			id=""
+			placeholder="Know it? Search for the artist / title"
+		/>
+	</div>
+
+	<!-- Skip & Submit btn's -->
 	<div class="m-1 flex h-12 w-full max-w-xl items-center justify-between">
-		<button on:click={increment} class="border border-white">increment +{guesses + 1}s</button>
-		<button>Submit</button>
+		<button
+			on:click={increment}
+			class="bg-white px-2 py-[10px] text-sm font-semibold tracking-wider text-black"
+			>SKIP (+{guesses + 1}s)</button
+		>
+		<button class="bg-green-500 px-2 py-[10px] text-sm font-semibold tracking-wider text-black"
+			>SUBMIT</button
+		>
 	</div>
 </span>

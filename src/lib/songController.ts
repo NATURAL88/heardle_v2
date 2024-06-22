@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-type guessCount = 0 | 1 | 2 | 3 | 4 | 5;
+export type guessCount = 0 | 1 | 2 | 3 | 4 | 5;
 declare var SC: any;
 
 export const position = writable(0);

@@ -1,8 +1,9 @@
 import { stringify } from 'postcss';
 import type { PageLoad } from './$types';
+import type { Controller } from '$lib/songController';
 
 declare global {
-	var widget: object;
+	var widget: Controller;
 }
 
 // async function getOembed(url: string): Promise<Response> {
