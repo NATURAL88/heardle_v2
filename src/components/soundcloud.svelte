@@ -33,4 +33,4 @@
 	frameborder="0"
 	allow="autoplay"
 	src="https://w.soundcloud.com/player/?url={soundcloudLink}&visual={showVisual}&show_comments={showComments}&auto_play={autoPlay}"
-/>
+></iframe>
