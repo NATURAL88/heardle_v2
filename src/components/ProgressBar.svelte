@@ -2,10 +2,12 @@
 	import { position } from '$lib/songController';
 	import type { guessCount } from '$lib/songController';
 
+	let timeToPxMargins: number[] = [36, 72, 144, 252, 396, 576];
+
 	let elapsed: Date;
 	let time: string;
 
-	$: elapsed = new Date($position);
+	$: elapsed = new Date($position + 200); // Current position + 100ms for better elapsed time readability
 	$: time = `${elapsed.getMinutes().toString().padStart(2, '0')}:${elapsed
 		.getSeconds()
 		.toString()
@@ -20,7 +22,8 @@
 		}
 	}
 
-	function play() {
+	async function play() {
+		widget.positionUpdater();
 		widget.playFor(guesses);
 	}
 </script>
@@ -28,20 +31,27 @@
 <span class="flex flex-col items-center p-1">
 	<div class="flex h-3 w-full justify-center gap-[1px] border-y border-neutral-400">
 		<!-- Progress Bar -->
-		<div class="w-full max-w-xl bg-neutral-600">
-			<!-- TODO -->
+		<div class="relative flex max-w-xl w-full">
+			<div style="width: {($position / 16000) * 100}%;" class="absolute bg-green-500 h-full"></div>
+			<div style="width: {timeToPxMargins[guesses]}px" class="bg-neutral-700">
+				{#each timeToPxMargins as margin}
+					<div style="left: {margin}px" class="absolute bg-neutral-400 w-px h-full"></div>
+				{/each}
+			</div>
 		</div>
 	</div>
 
 	<!-- Timestamps & Play Button -->
 	<div class="m-1 flex h-12 w-full max-w-xl items-center justify-between">
-		<div>{time}</div>
+		<div>{$position / 576} || {time}</div>
+		<!-- Change reset to play -->
 		<button
 			on:click={play}
 			class="flex h-12 w-12 max-w-xl items-center justify-center rounded-[50%] border-2 border-white"
 		>
 			<img src="./play-button.svg" alt="play button" class="h-6 pl-2" />
 		</button>
+
 		<div>16:00</div>
 	</div>
 
