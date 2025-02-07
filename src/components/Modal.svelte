@@ -37,7 +37,7 @@
 					viewBox="0 0 22 22"
 					width="20"
 					height="20"
-					class="stroke-neutral-600 stroke-[3]"
+					class="stroke-neutral-600 stroke-3"
 					stroke-width="2"
 					stroke-linejoin="round"
 					stroke-linecap="round"

@@ -1,20 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-*: initial;
+  --font-noto: Roboto, Arial, sans-serif;
+
+  --text-*: initial;
+  --text-3xl: 32px;
+  --text-3xl--line-height: 36px;
+  --text-3xl--letter-spacing: -0.04em;
+  --text-sm: 0.875rem, 1.25rem;
+
+  --color-normal: rgb(23 23 23);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility nav-btn {
+  @apply size-6 text-white align-middle;
+}
+
+@utility bg-base {
+  @apply bg-neutral-900;
+}
 
 @layer base {
     html {
         @apply text-white font-noto;
-        @apply bg-neutral-900
-    }
-}
-
-@layer components {
-    .nav-btn {
-        @apply size-6 text-white align-middle
-    }
-
-    .bg-base {
         @apply bg-neutral-900
     }
 }
