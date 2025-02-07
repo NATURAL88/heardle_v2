@@ -1,28 +1,30 @@
-<script>
+<script lang="ts">
 	import '../app.css';
-
-	import { showAboutModal, showHTPModal } from './ModalStores';
-	import Modal from './Modal.svelte';
-	let showModal = false;
+	import { showAboutModal, showStatsModal, showHTPModal } from './ModalStores';
+	import type { Writable } from 'svelte/store';
 </script>
+
+{#snippet navbtn(store: Writable<boolean>, icon: string, alt: string, label: string)}
+	<button class="px-3" onclick={() => store.set(true) } aria-label={label}>
+		<img src={icon} alt={alt} class="nav-btn" />
+	</button>
+{/snippet}
 
 <div class="flex h-14 w-full items-center justify-center border-y border-neutral-400">
 	<div class="flex w-[48rem] flex-initial flex-row items-center justify-center p-2">
 		<a href="https://github.com/NATURAL88/heardle_v2" class="px-3">
 			<img src="./github-mark-white.svg" alt="Github repo" class="nav-btn" />
 		</a>
+
 		<!-- About button -->
-		<button class="px-3" onclick={() => showAboutModal.set(true)}>
-			<img src="./info-btn.svg" alt="about" class="nav-btn" />
-		</button>
+		{@render navbtn(showAboutModal, './info-btn.svg', 'about', 'About')}
+
 		<h1 class="flex-1 text-center font-noto text-3xl font-bold text-white">Heardle</h1>
+
 		<!-- Stats button -->
-		<button class="px-3">
-			<img src="./bar-graph.svg" alt="statistics" class="nav-btn" />
-		</button>
+		{@render navbtn(showStatsModal, './bar-graph.svg', 'statistics', 'Statistics')}
+
 		<!-- How to play button -->
-		<button class="px-3" onclick={() => showHTPModal.set(true)}>
-			<img src="./question-btn.svg" alt="how to play" class="nav-btn" />
-		</button>
+		{@render navbtn(showHTPModal, './question-btn.svg', 'how to play', 'How to play')}
 	</div>
 </div>
