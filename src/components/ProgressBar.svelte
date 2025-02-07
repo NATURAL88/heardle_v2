@@ -4,16 +4,16 @@
 
 	let timeToPxMargins: number[] = [36, 72, 144, 252, 396, 576];
 
-	let elapsed: Date;
-	let time: string;
-
-	$: elapsed = new Date($position + 200); // Current position + 100ms for better elapsed time readability
-	$: time = `${elapsed.getMinutes().toString().padStart(2, '0')}:${elapsed
+	let elapsed: Date = $derived(new Date($position + 200));
+	let time: string = $derived(`${elapsed.getMinutes().toString().padStart(2, '0')}:${elapsed
 		.getSeconds()
 		.toString()
-		.padStart(2, '0')}`;
+		.padStart(2, '0')}`);
 
-	let guesses: guessCount = 0;
+	// Current position + 100ms for better elapsed time readability
+
+
+	let guesses: guessCount = $state(0);
 
 	function increment() {
 		guesses += 1;
@@ -46,7 +46,7 @@
 		<div>{$position / 576} || {time}</div>
 		<!-- Change reset to play -->
 		<button
-			on:click={play}
+			onclick={play}
 			class="flex h-12 w-12 max-w-xl items-center justify-center rounded-[50%] border-2 border-white"
 		>
 			<img src="./play-button.svg" alt="play button" class="h-6 pl-2" />
@@ -70,7 +70,7 @@
 	<!-- Skip & Submit btn's -->
 	<div class="m-1 flex h-12 w-full max-w-xl items-center justify-between">
 		<button
-			on:click={increment}
+			onclick={increment}
 			class="bg-white px-2 py-[10px] text-sm font-semibold tracking-wider text-black"
 			>SKIP (+{guesses + 1}s)</button
 		>

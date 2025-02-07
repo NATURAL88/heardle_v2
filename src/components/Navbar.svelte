@@ -12,7 +12,7 @@
 			<img src="./github-mark-white.svg" alt="Github repo" class="nav-btn" />
 		</a>
 		<!-- About button -->
-		<button class="px-3" on:click={() => showAboutModal.set(true)}>
+		<button class="px-3" onclick={() => showAboutModal.set(true)}>
 			<img src="./info-btn.svg" alt="about" class="nav-btn" />
 		</button>
 		<h1 class="flex-1 text-center font-noto text-3xl font-bold text-white">Heardle</h1>
@@ -21,7 +21,7 @@
 			<img src="./bar-graph.svg" alt="statistics" class="nav-btn" />
 		</button>
 		<!-- How to play button -->
-		<button class="px-3" on:click={() => showHTPModal.set(true)}>
+		<button class="px-3" onclick={() => showHTPModal.set(true)}>
 			<img src="./question-btn.svg" alt="how to play" class="nav-btn" />
 		</button>
 	</div>

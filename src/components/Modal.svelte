@@ -2,8 +2,15 @@
 	import { showHTPModal } from './ModalStores';
 	import { showAboutModal } from './ModalStores';
 	import { showStatsModal } from './ModalStores';
+	import type { Snippet } from 'svelte';
 
-	export let title: string = 'title';
+	interface Props {
+		title?: string;
+		body?: Snippet;
+		footer?: Snippet;
+	}
+
+	let { title = 'title', body, footer }: Props = $props();
 
 	function hideModals() {
 		showHTPModal.set(false);
@@ -24,7 +31,7 @@
 					{title}
 				</p>
 			</span>
-			<button class="flex-none justify-self-end p-3" on:click={hideModals}>
+			<button class="flex-none justify-self-end p-3" onclick={hideModals}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 22 22"
@@ -42,8 +49,8 @@
 		</div>
 
 		<div class="flex flex-col items-center p-5">
-			<slot name="body" />
-			<slot name="footer" />
+			{@render body?.()}
+			{@render footer?.()}
 		</div>
 	</div>
 </div>

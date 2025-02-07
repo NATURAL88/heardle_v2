@@ -2,15 +2,27 @@
 	import { Controller } from '$lib/songController';
 	import { onMount } from 'svelte';
 
-	export let soundcloudLink: string;
-	export let width = '100%';
-	export let showVisual = false;
-	export let height = '300';
-	export let showComments = false;
-	export let autoPlay = false;
-	export let hidden: string | boolean;
+	interface Props {
+		soundcloudLink: string;
+		width?: string;
+		showVisual?: boolean;
+		height?: string;
+		showComments?: boolean;
+		autoPlay?: boolean;
+		hidden: string | boolean;
+	}
 
-	var iframe: HTMLIFrameElement | null;
+	let {
+		soundcloudLink,
+		width = '100%',
+		showVisual = false,
+		height = '300',
+		showComments = false,
+		autoPlay = false,
+		hidden
+	}: Props = $props();
+
+	var iframe: HTMLIFrameElement | null = $state();
 
 	onMount(() => {
 		iframe = document.querySelector('#scwidget');

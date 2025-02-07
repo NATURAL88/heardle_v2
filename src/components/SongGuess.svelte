@@ -2,12 +2,16 @@
 	import type { guessState } from "../app";
 	let count = 10;
 
-	export let state: guessState;
+	interface Props {
+		state: guessState;
+	}
+
+	let { state }: Props = $props();
 </script>
 
 <div class="flex h-9 items-center border border-neutral-500 p-2">
 	{#if state === 'nuetral'}
-		<div />
+		<div></div>
 	{:else if state === 'wrong'}
 		<img src="./x-mark.svg" alt="wrong" class="h-4" />
 	{:else if state === 'half-wrong'}
