@@ -41,7 +41,6 @@
 			{/snippet}
 			{#snippet footer()}
 				<button
-
 					class="bg-green-500 px-2 py-[10px] text-sm font-semibold tracking-wider text-normal"
 					onclick={() => showHTPModal.set(false)}
 				>
@@ -63,8 +62,7 @@
 					<br />
 				</div>
 			{/snippet}
-		</Modal
-		>
+		</Modal>
 	{/if}
 	<SongEntry {guesses} />
 	<ProgressBar />

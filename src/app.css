@@ -32,12 +32,9 @@
 }
 
 @utility nav-btn {
-  @apply size-6 text-white align-middle;
+    @apply size-6 text-white align-middle;
 }
 
-@utility bg-base {
-  @apply bg-neutral-900;
-}
 
 @layer base {
     html {

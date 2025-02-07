@@ -24,14 +24,14 @@
 		class="relative top-14 flex h-max max-w-[460px] flex-col items-center border border-neutral-500 bg-normal"
 	>
 		<div class="flex w-full items-center justify-center bg-normal px-5 pt-5">
-			<span class="flex-1">
-				<p
-					class="relative ml-11 text-center text-sm font-semibold tracking-[0.2em] text-neutral-400"
-				>
-					{title}
-				</p>
-			</span>
-			<button class="flex-none justify-self-end p-3" onclick={hideModals}>
+			<p class="flex-1 relative ml-11 text-center text-sm font-semibold tracking-[0.2em] text-neutral-400">
+				{title}
+			</p>
+			<button
+				class="flex-none justify-self-end p-3"
+				onclick={hideModals}
+				aria-label="Close"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 22 22"
