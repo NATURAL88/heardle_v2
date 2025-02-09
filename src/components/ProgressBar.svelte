@@ -43,7 +43,7 @@
 
 	<!-- Timestamps & Play Button -->
 	<div class="m-1 flex h-12 w-full max-w-xl items-center justify-between">
-		<div>{$position / 576} || {time}</div>
+		<div>{time}</div>
 		<!-- Change reset to play -->
 		<button
 			onclick={play}
